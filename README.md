@@ -1,18 +1,30 @@
 # NetLogo AR
 ## What Is It
-NetLogo AR is a spatial Augmented Reality (AR) authoring toolkit that combines room-scale AR technology with NetLogo. It is freely distributed as a part of [Turtle Universe](https://turtlesim.com/products/turtle-universe/), the mobile version of NetLogo. [NetLogo](https://ccl.northwestern.edu/netlogo/) is an agent-based programming language widely used in both scientific research and education. It enables the creation of room-scale multi-agent models, simulations, artworks, or games with existing NetLogo grammar. It also enables the seamless blending of existing NetLogo models into the physical world around you. 
+NetLogo AR is a spatial Augmented Reality (AR) authoring toolkit that combines room-scale AR technology with NetLogo. It is freely distributed as a part of [Turtle Universe](https://turtlesim.com/products/turtle-universe/), the mobile version of NetLogo. [NetLogo](https://ccl.northwestern.edu/netlogo/) is an agent-based programming language widely used in scientific research and education. It enables the creation of room-scale multi-agent models, simulations, artworks, or games with existing NetLogo grammar. It also enables the seamless blending of existing NetLogo models into the physical world around you. 
 
 The following figure demonstrates a sample transition included in this repository:
-![NetLogo AR Video](https://github.com/NetLogo-Mobile/NetLogo-AR/assets/12299703/a81825d8-165f-426e-8445-df0b270044da)
+
+<img src="https://github.com/NetLogo-Mobile/NetLogo-AR/assets/12299703/a81825d8-165f-426e-8445-df0b270044da" alt="NetLogo AR Preview" width="480"/>
 
 The following video provides a quick overview of the technical system:
 
-If you have any questions or need technical support, please feel free to send your thoughts to [NetLogo's Official Forum](https://community.netlogo.org/). If you find any bugs when using the system, please [raise an issue here](https://github.com/NetLogo-Mobile/NetLogo-AR/issues).
+[![NetLogo AR Video](https://img.youtube.com/vi/xJcEGpp6rCE/0.jpg)](https://www.youtube.com/watch?v=xJcEGpp6rCE "Everything Is AWESOME")
 
-## Hardware Requirement
-NetLogo AR is supported on all devices that Turtle Universe supports, which includes iOS, Android, Windows, macOS, and Chromebook. All devices can be used to create a room-scale AR experience that works on all devices. However, only some devices support the visualization to the fullest extent. Here is a simplified matrix of NetLogo AR's device-feature compatibility:
+If you have any questions or need technical support, please send your thoughts to [NetLogo's Official Forum](https://community.netlogo.org/). If you find any bugs when using the system, please [raise an issue here](https://github.com/NetLogo-Mobile/NetLogo-AR/issues).
 
-| Device / Features           | Room-scale AR | Plane-based AR | Non-AR (Topdown View) |
+### Supported Modalities
+NetLogo AR currently supports three modalities:
+![Examples of the three modalities](https://github.com/NetLogo-Mobile/NetLogo-AR/assets/12299703/6b7a71a5-3220-42c0-9841-3305d669fca8)
+* *Room-scale AR*: In this modality, NetLogo AR will attempt to recognize your physical surroundings (e.g., walls, doors, tables, chairs) at a room-scale. By default, it will attempt to visualize the physical items as semi-translucent boxes. They will also be mapped to the model as polygons or lines that can interact with NetLogo agents.
+* *Plane-based AR*: In this modality, NetLogo AR will attempt to recognize planes in your physical surroundings (e.g., walls, floors, tables) as polygons. The outline of the polygon will also be mapped to the model as lines that can interact with NetLogo agents.
+* *Non-AR*: In this modality, since the device cannot acquire information directly from the physical surroundings, NetLogo AR supports loading from an existing save. A save can be exported from a supported device (e.g. a LIDAR-equipped iPad or iPhone). Turtle Universe also embeds a scan that will be loaded by default.
+
+Users can switch between (room-scale AR or plane-based AR) and non-AR at will. Switching between Room-scale AR or Plane-based AR requires a re-scan. Models created in any modality can be loaded from other modalities as needed. 
+
+### Hardware Requirement
+NetLogo AR is supported on all devices that Turtle Universe supports, which includes iOS, Android, Windows, macOS, and Chromebook. All devices can create a room-scale AR experience that works on all devices. However, only some devices support the visualization to the fullest extent. Here is a simplified matrix of NetLogo AR's device-modality compatibility:
+
+| Device / Modalities         | Room-scale AR | Plane-based AR | Non-AR (Topdown View) |
 |-----------------------------|---------------|----------------|-----------------------|
 | iPad & iPhone with LIDAR    | Yes           | Yes            | Yes                   |
 | iPad & iPhone without LIDAR | No            | Yes            | Yes                   |
@@ -23,14 +35,18 @@ NetLogo AR is supported on all devices that Turtle Universe supports, which incl
 * How can I know if my iOS device has LIDAR?
 Apple provides a list of LIDAR-enabled devices [here](https://support.apple.com/en-us/102468#ipad).
 * Does NetLogo AR support VisionOS?
-We do have plans for VisionOS, but do not have a device at this moment. If you happen to have one, please let us know. 
+We do have plans for VisionOS, but do not have a device at this moment. If you have one, please let us know. 
+* How can I know if my Android device has ARCore?
+If you see an "AR" button on the top-left in any models opened with Turtle Universe, your Android device likely has ARCore support.
+* How do you install Turtle Universe on Chromebook?
+You need to enable Google Play support on your Chromebook.
 
 ## How To Use It
 ### Try It Yourself
-Before starting to make a NetLogo model with NetLogo AR, consider playing with it first. We have made a few examples that you can play in Turtle Universe. If you make or see an interesting AR model, please let us know. We are happy to include your model!
+Before making a NetLogo model with NetLogo AR, consider playing with it first. We have made a few examples that you can play in Turtle Universe. If you make or see an interesting AR model, please let us know. We are happy to include your model!
 
 ### Children's Projects
-During our recent study in 2023, 7 children aged 11-13 in an after-school program created 7 projects. 6 of them are NetLogo AR projects. You might want to try them out as well:
+During our recent study in 2023, 7 children aged 11-13 in an after-school program created seven projects. Six of them are NetLogo AR projects. You might want to try them out as well:
 
 ### Adapt an Existing Model
 

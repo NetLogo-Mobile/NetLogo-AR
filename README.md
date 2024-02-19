@@ -15,9 +15,9 @@ If you have any questions or need technical support, please send your thoughts t
 ### Supported Modalities
 NetLogo AR currently supports three modalities:
 ![Examples of the three modalities](https://github.com/NetLogo-Mobile/NetLogo-AR/assets/12299703/6b7a71a5-3220-42c0-9841-3305d669fca8)
-* *Room-scale AR*: In this modality, NetLogo AR will attempt to recognize your physical surroundings (e.g., walls, doors, tables, chairs) at a room-scale. By default, it will attempt to visualize the physical items as semi-translucent boxes. They will also be mapped to the model as polygons or lines that can interact with NetLogo agents.
-* *Plane-based AR*: In this modality, NetLogo AR will attempt to recognize planes in your physical surroundings (e.g., walls, floors, tables) as polygons. The outline of the polygon will also be mapped to the model as lines that can interact with NetLogo agents.
-* *Non-AR*: In this modality, since the device cannot acquire information directly from the physical surroundings, NetLogo AR supports loading from an existing save. A save can be exported from a supported device (e.g. a LIDAR-equipped iPad or iPhone). Turtle Universe also embeds a scan that will be loaded by default.
+* **Room-scale AR**: In this modality, NetLogo AR will attempt to recognize your physical surroundings (e.g., walls, doors, tables, chairs) at a room-scale. By default, it will attempt to visualize the physical items as semi-translucent boxes. They will also be mapped to the model as polygons or lines that can interact with NetLogo agents.
+* **Plane-based AR**: In this modality, NetLogo AR will attempt to recognize planes in your physical surroundings (e.g., walls, floors, tables) as polygons. The outline of the polygon will also be mapped to the model as lines that can interact with NetLogo agents.
+* **Non-AR**: In this modality, since the device cannot acquire information directly from the physical surroundings, NetLogo AR supports loading from an existing save. A save can be exported from a supported device (e.g. a LIDAR-equipped iPad or iPhone). Turtle Universe also embeds a scan that will be loaded by default.
 
 Users can switch between (room-scale AR or plane-based AR) and non-AR at will. Switching between Room-scale AR or Plane-based AR requires a re-scan. Models created in any modality can be loaded from other modalities as needed. 
 
@@ -33,13 +33,13 @@ NetLogo AR is supported on all devices that Turtle Universe supports, which incl
 
 ### Frequently Asked Questions
 * How can I know if my iOS device has LIDAR?
-Apple provides a list of LIDAR-enabled devices [here](https://support.apple.com/en-us/102468#ipad).
+** Apple provides a list of LIDAR-enabled devices [here](https://support.apple.com/en-us/102468#ipad).
 * Does NetLogo AR support VisionOS?
-We do have plans for VisionOS, but do not have a device at this moment. If you have one, please let us know. 
+** We do have plans for VisionOS, but do not have a device at this moment. If you have one, please let us know. 
 * How can I know if my Android device has ARCore?
-If you see an "AR" button on the top-left in any models opened with Turtle Universe, your Android device likely has ARCore support.
+** If you see an "AR" button on the top-left in any models opened with Turtle Universe, your Android device likely has ARCore support.
 * How do you install Turtle Universe on Chromebook?
-You need to enable Google Play support on your Chromebook.
+** You need to enable Google Play support on your Chromebook.
 
 ## How To Use It
 ### Try It Yourself

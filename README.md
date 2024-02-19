@@ -8,7 +8,7 @@ The following figure demonstrates a sample transition included in this repositor
 
 The following video provides a quick overview of the technical system:
 
-[![NetLogo AR Video](https://img.youtube.com/vi/xJcEGpp6rCE/0.jpg)](https://www.youtube.com/watch?v=xJcEGpp6rCE "Everything Is AWESOME")
+[![NetLogo AR Video](https://img.youtube.com/vi/xJcEGpp6rCE/0.jpg)](https://www.youtube.com/watch?v=xJcEGpp6rCE)
 
 If you have any questions or need technical support, please send your thoughts to [NetLogo's Official Forum](https://community.netlogo.org/). If you find any bugs when using the system, please [raise an issue here](https://github.com/NetLogo-Mobile/NetLogo-AR/issues).
 
@@ -32,18 +32,20 @@ NetLogo AR is supported on all devices that Turtle Universe supports, which incl
 | Windows, macOS, Chromebooks | No            | No             | Yes                   |
 
 ### Frequently Asked Questions
-* How can I know if my iOS device has LIDAR?
-** Apple provides a list of LIDAR-enabled devices [here](https://support.apple.com/en-us/102468#ipad).
-* Does NetLogo AR support VisionOS?
-** We do have plans for VisionOS, but do not have a device at this moment. If you have one, please let us know. 
-* How can I know if my Android device has ARCore?
-** If you see an "AR" button on the top-left in any models opened with Turtle Universe, your Android device likely has ARCore support.
-* How do you install Turtle Universe on Chromebook?
-** You need to enable Google Play support on your Chromebook.
+**Q:** How can I know if my iOS device has LIDAR?
+**A:** Apple provides a list of LIDAR-enabled devices [here](https://support.apple.com/en-us/102468#ipad).
+**Q:** Does NetLogo AR support VisionOS?
+**A:** We do have plans for VisionOS, but do not have a device at this moment. If you have one, please let us know. 
+**Q:** How can I know if my Android device has ARCore?
+**A:** If you see an "AR" button on the top-left in any models opened with Turtle Universe, your Android device likely has ARCore support.
+**Q:** How do you install Turtle Universe on Chromebook?
+**A:** You need to enable Google Play support on your Chromebook.
 
 ## How To Use It
 ### Try It Yourself
 Before making a NetLogo model with NetLogo AR, consider playing with it first. We have made a few examples that you can play in Turtle Universe. If you make or see an interesting AR model, please let us know. We are happy to include your model!
+* [**Ants (AR)**](https://turtlesim.com/tuc/?global-model-63ffd904c53d30d62d4d58c7?): The AR version of the classical [Ants](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Biology/Ants.nlogo) model. The main difference is that ants interact with obstacles in the physical world, and you can play as an ant with infinite or limited vision. 
+* [**Balls AR**](https://turtlesim.com/tug/?global-model-643ecde0c84b870b4099ce58?): An AR model that contains multiple balls (circles) doing random movement in the physical space. The balls will collide into real-world elements and each other. You can play as one ball in the world, with an option to attract other balls.
 
 ### Children's Projects
 During our recent study in 2023, 7 children aged 11-13 in an after-school program created seven projects. Six of them are NetLogo AR projects. You might want to try them out as well:

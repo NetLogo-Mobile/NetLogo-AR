@@ -43,16 +43,80 @@ NetLogo AR is supported on all devices that Turtle Universe supports, which incl
 
 ## How To Use It
 ### Try It Yourself
-Before making a NetLogo model with NetLogo AR, consider playing with it first. We have made a few examples that you can play in Turtle Universe. If you make or see an interesting AR model, please let us know. We are happy to include your model!
+Before making a NetLogo model with NetLogo AR, consider playing with it first. We have made a few examples that you can play in Turtle Universe. Both models are open-sourced that could help you understand how it works. If you make or see an interesting AR model, please let us know. We are happy to include your model!
 * [**Ants (AR)**](https://turtlesim.com/tuc/?global-model-63ffd904c53d30d62d4d58c7?): The AR version of the classical [Ants](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Biology/Ants.nlogo) model. The main difference is that ants interact with obstacles in the physical world, and you can play as an ant with infinite or limited vision. 
 * [**Balls AR**](https://turtlesim.com/tug/?global-model-643ecde0c84b870b4099ce58?): An AR model that contains multiple balls (circles) doing random movement in the physical space. The balls will collide into real-world elements and each other. You can play as one ball in the world, with an option to attract other balls.
 
 ### Children's Projects
 During our recent study in 2023, 7 children aged 11-13 in an after-school program created seven projects. Six of them are NetLogo AR projects. You might want to try them out as well:
 
-### Adapt an Existing Model
+### Create an AR model
+Essentially, a NetLogo AR model is a NetLogo model using [XR](https://github.com/NetLogo-Mobile/Tortoise/blob/wip-tortuga/engine/src/main/coffee/extensions/xr.json) and [phys](https://github.com/NetLogo-Mobile/Tortoise/blob/wip-tortuga/engine/src/main/coffee/extensions/phys.json) extensions.
 
-### Create a new AR Model
+```
+extensions [ xr phys ]
+```
+
+The `XR` extension provides primitives that allow you to convert a real-world scan into your NetLogo world. Specifically:
+* **xr:room-scan** initiates the scan and calls back when the scan is complete. The user might load an existing scan, which also counts. This allows the model to run on non-AR devices.
+* **xr:resize-world** automatically resizes the world based on the real-world dimensions. You can specify a minimum world size as an optional parameter.
+* **xr:iterate-as-patches** allows you to iterate through scanned items (walls, tables, etc) as patches, so you can mark each patch as “impassable” or with a special flag.
+* **xr:iterate-as-turtles** does the same, but could be used to create physical turtles.
+
+For example, the following code performs a `setup`-like action when the user finishes a scan:
+```
+to setup
+  xr:room-scan [ [ method id ] ->
+    ; Resizing the world with a minimum size of 20
+    xr:resize-world 20
+    ; Clearing everything from the environment
+    clear-all
+    ; Initializing the obstacles
+    xr:iterate-as-turtles "init-an-obstacle"
+    ; Making the patches transparent
+    ask patches [ set pcolor [ 0 0 0 0 ] ]
+    ;;; Your real setup code below, for example, we create 50 balls below:
+    create-turtles 50 [
+      setxy random-xcor random-ycor
+      set shape "circle"
+    ]
+  ]
+end
+```
+
+Then, use the `phys` extension to create physical turtles with polygon shapes. For example, the following code converts scanned walls, windows, and doors into edges and other items as polygons: 
+```
+; Initialize a single obstacle
+to init-an-obstacle [ class object points zmin zmax ]
+  create-turtles 1 [
+    set color xr:color-of class object ; Matching the color with the type of obstacle
+    ifelse length points = 4 [ ; If the obstacle is a wall
+      phys:make-edges true points ; Create the edges of the wall
+    ] [
+      set heading 0 ; Re-orient the heading to avoid bugs
+      phys:set-type 1 ; Make the obstacles stay there (not pushed away by balls)
+      phys:make-polygon true points ; Create the polygon of the obstacle
+      phys:set-origin 0 0 ; Setting the origin of the polygon
+    ]
+  ]
+end
+```
+
+Finally, use `xr:xcor` and `xr:ycor` to trace the world coordinates of the user. For example, the following code makes the red turtle follow the user's position:
+```
+; Makes the turtle 0 follow you
+to go
+  ask turtle 0 [
+    setxy xr:xcor xr:ycor
+    set heading xr:heading
+  ]
+end
+```
+
+Until here, you will have a skeleton AR model that spawns 50 balls, with one of them constantly follows the user's location. Note that the behavior of `xr:xcor` and `xr:ycor` differs in different AR modalities:
+* In **room-scale AR**, it points to the user's real-world location mapped in the model space.
+* In **plane-based AR**, it points to where the device's camera center is pointed, mapped in the model space.
+* In **non-AR**, it points to where the user's viewport center is, mapped in the model space.
 
 ## License
 The documentation and official samples in this repository adopt an MIT license. Individual authors, including children, own their respective models. 
